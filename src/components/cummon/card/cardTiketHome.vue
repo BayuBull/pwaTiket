@@ -64,12 +64,24 @@
               ></v-text-field>
             </div>
              <!-- Jumlah Pengunjung -->
+             <span class="CapMenu">Metode Pembayaran</span>
+             <div class="d-flex">
+                <v-icon
+               class="mr-2 iconBox"
+                >
+                    mdi-credit-card
+                </v-icon>
+               <v-select
+                  :items="items"
+                  outlined
+                ></v-select>
+             </div>
              <span class="CapMenu">Total Harga</span>
              <div class="d-flex">
                <v-icon
-               class="mr-2 Creditcard"
+               class="mr-2 iconBox"
                 >
-                    mdi-credit-card
+                    mdi-cloud-print
                 </v-icon>
                <v-text-field
                 label = "Outlined"
@@ -100,6 +112,7 @@ export default {
       date: new Date().toISOString().substr(0, 10),
       menu: false,
       JumlahPengunjung : 0,
+      items: ['OVO', 'GOPAY', 'DANA'],
     }),
     computed:{
       total(){
@@ -135,7 +148,7 @@ export default {
   .cardPesan{
     display: flex;
   }
-  .Creditcard{
+  .iconBox{
     top: -15px;
     display: relative;
   }
