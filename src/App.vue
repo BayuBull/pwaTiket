@@ -1,24 +1,23 @@
 <template>
   <v-app>
-      <Appbar/>
     <v-main>
-     
+        <Nav/>
+          <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Appbar from './components/globalComponents/Appbar';
+import Nav from './components/globalComponents/Appbar';
 
 export default {
   name: 'App',
 
   components: {
-    Appbar,
+    Nav,
   },
 
   data: () => ({
-    //
   }),
 };
 </script>
