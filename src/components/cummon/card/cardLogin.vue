@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="pa-5">
+    <v-card class="pa-5" flat color="#fafafa">
      <v-card-title 
          class="d-flex justify-center">
          <h3
@@ -14,7 +14,7 @@
                 <v-text-field
                 placeholder="Nama"
                 type="email"
-                v-model="username"
+                v-model="fullname"
                 outlined
                 dense
                 ></v-text-field>
@@ -25,6 +25,7 @@
                 name="input-10-2"
                 placeholder="Password"
                 hint="At least 8 characters"
+                v-model="password"
                 outlined
                 class="input-group--focused"
                 @click:append="show = !show"
@@ -35,7 +36,6 @@
                   color="orange lighten-1"
                   class="btn-Login"
                   width="40%"
-                  type="submit"
                   to="/register"
                 >
                     <span>Daftar</span>
@@ -49,17 +49,18 @@
                    <span>Masuk</span>
                 </v-btn>
                   </div>
-                  <div class="d-flex">
+                  <!-- <div class="d-flex">
                      <span class="lupaPassword my-4">
                         <router-link to="/" class=" text-decoration-none">Lupa password ?</router-link>
                     </span>
-                  </div>   
+                  </div>    -->
             </v-form>
     </v-card>
   </div>
 </template>
 
 <script>
+import fetch from '../../../fetch'
 export default {
     name:'cardLogin',
     data: () =>({
@@ -67,10 +68,27 @@ export default {
         // v => !!v || 'Sorry, wrong email format',
         // v => /.+\..+/.test(v) || 'Sorry, wrong email format',
         // ],
-        username:'',
+        fullname:'',
         password:'',
         show: false,
     }),
+    methods: {
+        async login(){
+            let fullname = this.fullname
+            let password = this.password
+
+            this.$store.dispatch('login', {fullname,password})
+            .then(res =>{
+                const token = res.data.data
+                localStorage.setItem('token', token)
+                fetch()
+                this.$router.push('/pesantiket')
+            })
+            .catch(err =>{
+            console.log(err)
+            })
+        }
+    }
 }
 </script>
 

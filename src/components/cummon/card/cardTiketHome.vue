@@ -1,13 +1,14 @@
 <template>
   <div>
       <v-card
-      elevation="2"
       class="cardPesan"
-      max-width="300px"
+      flat
+      color="#fafafa"
     >
       <v-card-title>
        <span class="Title mt-3 mb-6">Pesan Tiket</span>
-        <v-form>
+        <v-form
+        class="formTiket">
           <!-- date pick -->
           <span class="CapMenu">Tanggal Kedatangan</span>
           <v-menu
@@ -38,22 +39,20 @@
             <span class="CapMenu">Jumlah Pengunjung</span>
             <div class="d-flex">
               <div class="flex-column BoxBtn">
-                  <v-button>
                     <v-icon
-                      color="red"
+                      color="green"
                       @click="increment"
+                       small
                     >
                       mdi-plus
                     </v-icon>
-                  </v-button>
-                      <v-button>
-                  <v-icon
-                      color="green"
+                    <v-icon
+                      color="red"
+                      small
                       @click="decrement"
                     >
                       mdi-minus
                     </v-icon>
-                  </v-button>
               </div>
               <v-text-field
                 label="Outlined"
@@ -63,7 +62,7 @@
                 :value="JumlahPengunjung"
               ></v-text-field>
             </div>
-             <!-- Jumlah Pengunjung -->
+             <!-- Jumlah Pengunjung
              <span class="CapMenu">Metode Pembayaran</span>
              <div class="d-flex">
                 <v-icon
@@ -75,7 +74,7 @@
                   :items="items"
                   outlined
                 ></v-select>
-             </div>
+             </div> -->
              <span class="CapMenu">Total Harga</span>
              <div class="d-flex">
                <v-icon
@@ -84,7 +83,6 @@
                     mdi-cloud-print
                 </v-icon>
                <v-text-field
-                label = "Outlined"
                 single-line
                 class="text-center"
                 outlined
@@ -129,14 +127,25 @@ export default {
       increment () {
         this.JumlahPengunjung++
       },
+      pesanTiket(){
+        
+      }
     }
 }
 </script>
 
 <style scoped>
+.BoxBtn{
+  position: relative;
+  top: -7px;
+}
+.formTiket{
+  width: 100%;
+}
   .Title{
     text-align: center;
     width: 100%;
+    font-size: 25px;
   }
   .CapMenu{
     font-size: 15px;
@@ -147,6 +156,7 @@ export default {
   }
   .cardPesan{
     display: flex;
+    width: calc(100vw - 50px);
   }
   .iconBox{
     top: -15px;
