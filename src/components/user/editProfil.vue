@@ -62,35 +62,31 @@ export default {
     methods:{
       getData(){
         const token = localStorage.getItem('token')
-        axios.get('http://192.168.43.14:3000/web/api/v1/users',
-                        {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                      }
-                      
-                  )
+        const header ={
+          headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+          }
+         axios({url: process.env.VUE_APP_URL+ '/api/v1/users', header, method:'GET'})
         .then((result) => {
           this.fullname = result.data.data.name
-     
         }).catch((err) => {
           console.log(err)
         });
       },
       updateProfile () {
         const token = localStorage.getItem('token')
-        axios.put(
-                `http://192.168.43.14:3000/web/api/v1/users`,
-                {
-                    fullname: this.fullname,
-                    password: this.password
-                },
-                {
-                    headers: {
+        const data = {
+           fullname: this.fullname,
+           password: this.password
+        }
+        const header = {
+          headers: {
                         Authorization: `Bearer ${token}`
                     }
-                }
-            ) .then((result) => {
+          }
+        axios({url: process.env.VUE_APP_URL+ '/api/v1/users', data, header, method:'PUT'}) 
+              .then((result) => {
               console.log(result)
               }).catch((err) => {
                 console.log(err)

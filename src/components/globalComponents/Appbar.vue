@@ -52,7 +52,7 @@ export default {
                 { title: 'Contact', icon: "mdi-cellphone"},
                 { title: 'Pesan Tiket', icon: "mdi-shopping", link: '/pesantiket'},
                 { title: 'Edit Profile', icon: "mdi-account", link: '/edituser'},
-                { title: 'Tiket', icon: "mdi-animation"}
+                { title: 'Tiket', icon: "mdi-animation", link: '/tiket'}
                 
             ]
         };

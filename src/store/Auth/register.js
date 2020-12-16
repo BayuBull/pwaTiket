@@ -20,7 +20,7 @@ export default{
     register({commit}, register){
       return new Promise((resolve, reject) => {
         commit('regis_request')
-        axios({url: process.env.VUE_APP_URL+ '/api/v1/users/register', data:register, method:'POST'})
+        axios({url: process.env.VUE_APP_URL+ 'api/v1/users/register', data:register, method:'POST'})
         .then(resp =>{
           commit('regis_succes')
           resolve(resp)

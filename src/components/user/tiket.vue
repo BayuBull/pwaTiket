@@ -1,21 +1,22 @@
 <template>
   <div>
     <v-row>
+
       <v-card
-        width="300px"
+        width="360px"
         height="100px"
         elevation="1"
-        color="grey"
+        color="white"
         >
         <v-col cols="8" class="gutter">
           <p class="judul pa-0 mb-0">Judul pemandian terbaru</p>
           <p class="subjudul">Judul pemandian terbaru</p>
         </v-col>
+        <v-col cols="4">
+                <div class="lingkaran"></div>
+        </v-col>         
         </v-card>
-        <div class="lingkaran"></div>
-        <div class="lingkaran2"></div>
     </v-row>
-    
   </div>
 </template>
 
@@ -35,27 +36,8 @@ export default {
   margin-left: 5px;
   margin: 0px 0px 0px 10px;
 }
-.gutter{
+/* .gutter{
   border-right: white dashed 4px;
- 
-}
-.lingkaran{
-  width: 30px;
-  background-color: #ffffff;
-  height: 30px;
-  border-radius: 150px;
-  position: relative;
-  left: -115px;
-  top: -12px;
-  
-}
-.lingkaran2{
-  width: 30px;
-  background-color: #ffffff;
-  height: 30px;
-  border-radius: 150px;
-  position: relative;
-  left: -143px;
-  top: 85px;
-}
+} */
+
 </style>

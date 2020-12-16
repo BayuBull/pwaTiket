@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import tiket from '../views/Home.vue'
+import pesantiket from '../views/Home.vue'
 import loginPage from '../views/Auth/loginPage'
 import registerPage from '../views/Auth/registerPage'
 import edituser from '../views/User/editUserPage'
+import tiket from '../views/User/tiketPage'
+
 
 Vue.use(VueRouter)
 
@@ -16,7 +18,7 @@ const routes = [
   {
     path:'/pesantiket',
     name:'tiket',
-    component : tiket
+    component : pesantiket
   },
   {
     path:'/register',
@@ -27,6 +29,11 @@ const routes = [
     path:'/edituser',
     name:'edituser',
     component : edituser
+  },
+  {
+    path:'/tiket',
+    name:'tiket',
+    component : tiket
   }
   // {
   //   path: '/about',
